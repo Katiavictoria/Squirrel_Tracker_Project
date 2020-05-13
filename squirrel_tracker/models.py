@@ -5,7 +5,7 @@ from django.db import models
 class Sightings(models.Model):
     Latitude = models.FloatField(null=True)
     Longitude = models.FloatField(null=True)
-    Unique_Squirrel_Id = models.CharField(max_length=100)
+    Unique_Squirrel_ID = models.CharField(max_length=100)
     Shift = models.CharField(max_length=20)
     Date = models.DateField(null=True)
     Age = models.CharField(max_length=20)
@@ -29,4 +29,4 @@ class Sightings(models.Model):
 
 
 def _str_(self):
-    return self.Unique_Squirrel_Id
+    return self.Unique_Squirrel_ID
