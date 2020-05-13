@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 2px solid black;
+}
+</style>
+</head>
+<body>
+<h2>Squirrel Sightings</h2>
+<a href="/sightings/add/">Add Sighting</a>
+<br>
+<a href="/sightings/statistics/">Sightings Statistics</a>
+	<table style="width:100%">
+	    <tr>
+		    <th>Unique_Squirrel_ID</th>
+            <th>Date</th>
+            <th>Link</th>
+        </tr>	
+	    {% for sighting in all_sightings %}
+	    <tr>	
+		    <td>{{sighting.Unique_Squirrel_ID}}</td>
+			<td>{{sighting.Date}}</td>
+        	<td>
+                <a href="/sightings/{{sighting.Unique_Squirrel_ID}}/">Update Link: {{sighting.Unique_Squirrel_ID}}</a>
+            </td>
+		 </tr>
+		 {% endfor %}
+	</table>
+</body>
+</html>>
