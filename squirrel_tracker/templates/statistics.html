@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Squirrel Sightings Statistics</title>
+<style>
+table, th, td {
+  border: 2px solid black;
+}
+th {
+  text-align: center;
+}
+td {text-align: center;
+}
+</style>
+</head>
+<body>
+  <table style="width:100%";>
+  <caption>Age Statistics</caption>
+    <tr>
+        <th>Age</th>
+        <th>Count</th>
+    </tr>
+      {% for item in squirrel_age %}
+      <tr>
+        {% for value in item.values %}
+        <td>{{ value }}</td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+  </table>
+  <br>
+
+  <table style="width:100%">
+    <caption>Primary Fur Color Statistics</caption>
+     <tr>
+        <th>Primary Fur Color</th>
+        <th>Count</th>
+      </tr>
+      {% for item in squirrel_primary_fur_color %}
+      <tr>
+        {% for value in item.values %}
+        <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+  </table>
+  <br>
+<p>Vocalization Statistics</p>
+<div>
+  <table style="float: middle">
+      <tr>
+        <th>Kuks</th>
+        <th>Quaas</th>
+      </tr>
+      {% for item in squirrel_kuks %}
+      <tr>
+        {% for value in item.values %}
+        <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+    </table>
+    <table style="float: middle">
+      <tr>
+         <th>Quaas</th>
+         <th>Count</th>
+      </tr>
+      {% for item in squirrel_quaas %}
+      <tr>
+        {% for value in item.values %}
+        <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+    </table>
+  <table style="float: middle">
+      <tr>
+        <th>Moans</th>
+        <th>Count</th>
+      </tr>
+      {% for item in squirrel_moans %}
+        <tr>
+        {% for value in item.values %}
+        <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+  </table>
+    </table>
+</div>
+</body>
