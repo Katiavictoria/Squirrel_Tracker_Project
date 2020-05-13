@@ -48,3 +48,17 @@ def sightings_add(request):
         'form' : form,
     }
     return render(request, 'update.html', context)
+def sightings_update(request, Unique_Squirrel_ID):
+    all_sightings = Sightings.objects.all()
+    squirrel = all_sightings.filter(Unique_Squirrel_ID=Unique_Squirrel_ID).first()
+    if request.method == 'GET':
+        form = SightingsForm(request.GET, instance=squirrel)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/')
+    else:
+        form = SightingsForm(instance=squirrel)
+    context = {
+        'form' : form,
+    }
+    return render(request, 'update.html', context)
