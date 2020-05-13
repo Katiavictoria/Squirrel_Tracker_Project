@@ -4,6 +4,7 @@ from django.core.exceptions import MultipleObjectsReturned
 from django.db.models import Count
 
 from django.http import HttpResponse
+from .forms import SightingsForm
 
 def sightings(request):
     all_sightings = Sightings.objects.all()
@@ -34,3 +35,16 @@ def sightings_statistics(request):
         'squirrel_moans': squirrel_moans,
     }
     return render(request, 'statistics.html', context)
+
+def sightings_add(request):
+    if request.method == 'GET':
+        form = SightingsForm(request.GET)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/')
+    else:
+        form = SightingsForm()
+    context = {
+        'form' : form,
+    }
+    return render(request, 'update.html', context)
